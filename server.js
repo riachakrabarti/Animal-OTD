@@ -58,15 +58,25 @@ const animals = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/animals.js
 const DB_PATH = path.join(__dirname, 'data/db.json');
 const tokenMap = {}; // token -> username (in-memory)
 
+const IS_VERCEL = !!process.env.VERCEL;
+
+function initialDb() {
+  return {
+    users: {
+      elliot: { passcode: 'elliot', discoveredAnimals: [], days: {} },
+      ria: { passcode: 'ria', discoveredAnimals: [], days: {} },
+      elliotandria: { passcode: 'elliotandria', discoveredAnimals: [], days: {} }
+    }
+  };
+}
+
 function loadDb() {
+  if (IS_VERCEL) {
+    // Vercel has a read-only filesystem; use in-memory db
+    return initialDb();
+  }
   if (!fs.existsSync(DB_PATH)) {
-    const initial = {
-      users: {
-        elliot: { passcode: 'elliot', discoveredAnimals: [], days: {} },
-        ria: { passcode: 'ria', discoveredAnimals: [], days: {} },
-        elliotandria: { passcode: 'elliotandria', discoveredAnimals: [], days: {} }
-      }
-    };
+    const initial = initialDb();
     fs.writeFileSync(DB_PATH, JSON.stringify(initial, null, 2));
     return initial;
   }
@@ -74,6 +84,7 @@ function loadDb() {
 }
 
 function saveDb(db) {
+  if (IS_VERCEL) return; // no-op on Vercel
   fs.writeFileSync(DB_PATH, JSON.stringify(db, null, 2));
 }
 
