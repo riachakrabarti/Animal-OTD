@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animal of the Day</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/login.css">
+  <link rel="stylesheet" href="/css/cards.css">
+  <link rel="stylesheet" href="/css/zoo.css">
+</head>
+<body>
+
+  <!-- Screen: Login -->
+  <section id="screen-login" class="screen active">
+    <div class="login-container">
+      <div class="login-icon">{ ~ }</div>
+      <h1>Animal of the Day</h1>
+      <p class="subtitle">// enter passcode to continue</p>
+      <div class="input-group">
+        <input type="password" id="passcode-input" placeholder="passcode" maxlength="20" autocomplete="off">
+        <button id="login-btn">→</button>
+      </div>
+      <p id="login-error" class="error hidden">Invalid passcode</p>
+    </div>
+  </section>
+
+  <!-- Screen: Daily Animals -->
+  <section id="screen-daily" class="screen">
+    <header class="top-bar">
+      <div class="top-bar-left">
+        <h2 id="greeting">Good morning!</h2>
+        <p id="date-display" class="date-text"></p>
+      </div>
+      <div class="top-bar-actions">
+        <button id="zoo-btn" class="pill-btn">My Zoo</button>
+        <button id="signout-btn" class="pill-btn pill-btn-ghost">Sign Out</button>
+      </div>
+    </header>
+
+    <div id="daily-content">
+      <p class="daily-subtitle">Tap a card to discover today's animal</p>
+      <div id="cards-container" class="cards-grid"></div>
+    </div>
+
+    <div id="day-complete-msg" class="hidden">
+      <div class="complete-badge">✨</div>
+      <h3>All discovered!</h3>
+      <p>Come back tomorrow for 3 new friends.</p>
+    </div>
+
+    <div id="exhausted-msg" class="hidden">
+      <div class="complete-badge">🎉</div>
+      <h3>You found them all!</h3>
+      <p>Your zoo is complete. Amazing!</p>
+    </div>
+  </section>
+
+  <!-- Screen: Zoo -->
+  <section id="screen-zoo" class="screen">
+    <header class="top-bar">
+      <button id="back-btn" class="pill-btn">← Back</button>
+      <div class="top-bar-right">
+        <h2>Your Zoo</h2>
+        <p id="zoo-count" class="date-text"></p>
+      </div>
+    </header>
+
+    <div id="zoo-enclosure" class="zoo-fence">
+      <div id="zoo-empty" class="zoo-empty hidden">
+        <p>🌱</p>
+        <p>Your zoo is empty!</p>
+        <p class="small">Discover animals each day to fill it up.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal: Animal Detail -->
+  <div id="animal-modal" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close">×</button>
+      <div class="modal-image-wrap">
+        <img id="modal-image" src="" alt="">
+      </div>
+      <h3 id="modal-name"></h3>
+      <ul id="modal-facts"></ul>
+      <div id="modal-video" class="modal-video"></div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/sprites.js"></script>
+  <script src="/js/daily.js"></script>
+  <script src="/js/zoo.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

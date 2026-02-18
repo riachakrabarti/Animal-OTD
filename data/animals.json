@@ -1,0 +1,688 @@
+[
+  {
+    "id": "red-panda",
+    "name": "Red Panda",
+    "emoji": "\ud83d\udd34\ud83d\udc3c",
+    "color": "#e84a27",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Red_Panda%2C_Gentle_Tree-Dweller_of_the_Himalayas.jpg/960px-Red_Panda%2C_Gentle_Tree-Dweller_of_the_Himalayas.jpg",
+    "facts": [
+      "Red pandas use their bushy tails as cozy blankets when they sleep!",
+      "They spend most of their lives up in trees and even sleep there.",
+      "Despite the name, they're actually more closely related to raccoons than giant pandas."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/VFqfPhkyABY",
+    "videoType": "youtube"
+  },
+  {
+    "id": "axolotl",
+    "name": "Axolotl",
+    "emoji": "\ud83e\ude77\ud83d\udc1f",
+    "color": "#f48fb1",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Axolotl_ganz.jpg/960px-Axolotl_ganz.jpg",
+    "facts": [
+      "Axolotls can regenerate their limbs, heart, and even parts of their brain!",
+      "They're permanent babies \u2014 they never fully metamorphose like other salamanders.",
+      "Wild axolotls are only found in one lake near Mexico City."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/LKXQ1xrFvHc",
+    "videoType": "youtube"
+  },
+  {
+    "id": "quokka",
+    "name": "Quokka",
+    "emoji": "\ud83d\ude0a\ud83d\udc2d",
+    "color": "#8d6e63",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Quokka_at_rottnest_%28cropped%29.jpg/920px-Quokka_at_rottnest_%28cropped%29.jpg",
+    "facts": [
+      "Quokkas are known as the happiest animals on Earth because they always look like they're smiling!",
+      "They live almost exclusively on Rottnest Island in Australia.",
+      "They can go months without drinking water by getting moisture from plants."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/178BGljBmPQ",
+    "videoType": "youtube"
+  },
+  {
+    "id": "fennec-fox",
+    "name": "Fennec Fox",
+    "emoji": "\ud83e\udd8a",
+    "color": "#ffe0b2",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Fennec_Fox_Vulpes_zerda.jpg/960px-Fennec_Fox_Vulpes_zerda.jpg",
+    "facts": [
+      "Their enormous ears can be up to 6 inches long \u2014 half their body length!",
+      "Those big ears help them radiate body heat and stay cool in the Sahara Desert.",
+      "They're the smallest fox species in the world, weighing only 2-3 pounds."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/dg4sviA-w9k",
+    "videoType": "youtube"
+  },
+  {
+    "id": "sea-otter",
+    "name": "Sea Otter",
+    "emoji": "\ud83e\udda6",
+    "color": "#795548",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Sea_Otter_%28Enhydra_lutris%29_%2825169790524%29_crop.jpg/922px-Sea_Otter_%28Enhydra_lutris%29_%2825169790524%29_crop.jpg",
+    "facts": [
+      "Sea otters hold hands while sleeping so they don't drift apart!",
+      "They have the densest fur of any mammal \u2014 about 1 million hairs per square inch.",
+      "They use rocks as tools to crack open shellfish on their tummies."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/epUk3T2Kfno",
+    "videoType": "youtube"
+  },
+  {
+    "id": "pygmy-owl",
+    "name": "Northern Pygmy Owl",
+    "emoji": "\ud83e\udd89",
+    "color": "#a1887f",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/NorthernPygmyOwl.jpg/960px-NorthernPygmyOwl.jpg",
+    "facts": [
+      "They're only about 6 inches tall \u2014 roughly the size of a soda can!",
+      "They have fake 'eye spots' on the back of their head to scare predators.",
+      "Despite their tiny size, they can hunt birds bigger than themselves."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/M0sbTCLDsng",
+    "videoType": "youtube"
+  },
+  {
+    "id": "hedgehog",
+    "name": "Hedgehog",
+    "emoji": "\ud83e\udd94",
+    "color": "#bcaaa4",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Igel.JPG/960px-Igel.JPG",
+    "facts": [
+      "A hedgehog has about 5,000 to 7,000 quills on its body!",
+      "When they encounter a new smell, they do something called 'self-anointing' \u2014 licking the object then spreading foamy saliva on their spines.",
+      "Baby hedgehogs are called hoglets!"
+    ],
+    "videoUrl": "https://www.youtube.com/embed/nAz0MCrlg6E",
+    "videoType": "youtube"
+  },
+  {
+    "id": "sugar-glider",
+    "name": "Sugar Glider",
+    "emoji": "\ud83d\udc3f\ufe0f\u2728",
+    "color": "#90a4ae",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Petaurus_breviceps-Cayley.jpg",
+    "facts": [
+      "They can glide through the air up to 150 feet using a membrane between their legs!",
+      "Sugar gliders are marsupials, not rodents \u2014 they carry their babies in a pouch.",
+      "They got their name because they love sweet foods like nectar and fruit."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/VXMTzDs7GWA",
+    "videoType": "youtube"
+  },
+  {
+    "id": "pika",
+    "name": "American Pika",
+    "emoji": "\ud83d\udc30",
+    "color": "#d7ccc8",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Ochotona_princeps_rockies.JPG/960px-Ochotona_princeps_rockies.JPG",
+    "facts": [
+      "Pikas are tiny relatives of rabbits that live on mountain tops!",
+      "They make tiny haystacks of dried grass and flowers to survive winter.",
+      "Their adorable squeak can be heard echoing across rocky mountain slopes."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/EXi1VzKyS1E",
+    "videoType": "youtube"
+  },
+  {
+    "id": "dumbo-octopus",
+    "name": "Dumbo Octopus",
+    "emoji": "\ud83d\udc19",
+    "color": "#f8bbd0",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Dumbo-hires_%28cropped%29.jpg/960px-Dumbo-hires_%28cropped%29.jpg",
+    "facts": [
+      "They're named after Disney's Dumbo because of the ear-like fins on their head!",
+      "They live deeper than any other octopus \u2014 up to 13,000 feet below the surface.",
+      "Unlike most octopuses, they swallow their prey whole in one adorable gulp."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/MhaboGDYGgM",
+    "videoType": "youtube"
+  },
+  {
+    "id": "slow-loris",
+    "name": "Slow Loris",
+    "emoji": "\ud83d\udc35",
+    "color": "#d4a574",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Nycticebus_coucang_002.jpg/960px-Nycticebus_coucang_002.jpg",
+    "facts": [
+      "Slow lorises are one of the only venomous primates in the world!",
+      "They have an incredibly strong grip \u2014 they can hang from branches for hours.",
+      "Their huge, round eyes give them excellent night vision for nocturnal life."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/PZ5ACLVjYwM",
+    "videoType": "youtube"
+  },
+  {
+    "id": "arctic-fox",
+    "name": "Arctic Fox",
+    "emoji": "\ud83e\udd8a\u2744\ufe0f",
+    "color": "#b3e5fc",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Vulpes_lagopus_in_Iceland_%28cropped_3%29.jpg/960px-Vulpes_lagopus_in_Iceland_%28cropped_3%29.jpg",
+    "facts": [
+      "Arctic foxes change color with the seasons \u2014 white in winter, brown in summer!",
+      "They can survive temperatures as low as -58\u00b0F (-50\u00b0C).",
+      "Their fluffy tails are so thick they use them as face blankets in blizzards."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/1GIRkMZ0XME",
+    "videoType": "youtube"
+  },
+  {
+    "id": "pangolin",
+    "name": "Pangolin",
+    "emoji": "\ud83d\udc3e\ud83e\udea8",
+    "color": "#c9b38c",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/42/Pangolin_borneo.jpg",
+    "facts": [
+      "Pangolins are the only mammals in the world completely covered in scales!",
+      "When scared, they roll into a perfect ball that even lions can't unroll.",
+      "A pangolin's tongue can be longer than its entire body."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/1l2ICxcZybI",
+    "videoType": "youtube"
+  },
+  {
+    "id": "capybara",
+    "name": "Capybara",
+    "emoji": "\ud83d\udc39",
+    "color": "#a1887f",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Hydrochoeris_hydrochaeris_in_Brazil_in_Petr%C3%B3polis%2C_Rio_de_Janeiro%2C_Brazil_09.jpg/960px-Hydrochoeris_hydrochaeris_in_Brazil_in_Petr%C3%B3polis%2C_Rio_de_Janeiro%2C_Brazil_09.jpg",
+    "facts": [
+      "Capybaras are the largest rodents on Earth, weighing up to 140 pounds!",
+      "They're incredibly social and will befriend literally any animal.",
+      "They can hold their breath underwater for up to five minutes."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/SCwcJsBYL3o",
+    "videoType": "youtube"
+  },
+  {
+    "id": "leaf-sheep",
+    "name": "Leaf Sheep Sea Slug",
+    "emoji": "\ud83d\udc11\ud83c\udf43",
+    "color": "#a5d6a7",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Costasiella_sp_%2819797152176%29.jpg/960px-Costasiella_sp_%2819797152176%29.jpg",
+    "facts": [
+      "They look like tiny cartoon sheep with leaf-like projections on their body!",
+      "They're one of the few animals that can photosynthesize \u2014 they eat algae and use the chloroplasts to make energy from sunlight.",
+      "They're only about 5mm long \u2014 smaller than a grain of rice!"
+    ],
+    "videoUrl": "https://www.youtube.com/embed/v1VKQN_LPi0",
+    "videoType": "youtube"
+  },
+  {
+    "id": "sand-cat",
+    "name": "Sand Cat",
+    "emoji": "\ud83d\udc31\ud83c\udfdc\ufe0f",
+    "color": "#ffe0b2",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/af/Felis_margarita_10.jpg",
+    "facts": [
+      "Sand cats look like perpetual kittens \u2014 even adults have baby-like faces!",
+      "Their paws are covered in fur to protect them from hot desert sand.",
+      "They can survive without drinking water for weeks, getting moisture from prey."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/MWqnFBFbtKs",
+    "videoType": "youtube"
+  },
+  {
+    "id": "puffin",
+    "name": "Atlantic Puffin",
+    "emoji": "\ud83d\udc27\ud83c\udf08",
+    "color": "#ff8a65",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Puffin_%28Fratercula_arctica%29.jpg/960px-Puffin_%28Fratercula_arctica%29.jpg",
+    "facts": [
+      "Puffins can carry 10+ fish in their beak at once, lined up perfectly!",
+      "Their colorful beaks actually fade to gray in winter and regrow their color in spring.",
+      "They flap their wings up to 400 times per minute to fly!"
+    ],
+    "videoUrl": "https://www.youtube.com/embed/28_-UBMbhpg",
+    "videoType": "youtube"
+  },
+  {
+    "id": "chinchilla",
+    "name": "Chinchilla",
+    "emoji": "\ud83d\udc2d\u2728",
+    "color": "#bdbdbd",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Chinchilla_lanigera_%28Wroclaw_zoo%29-2.JPG/960px-Chinchilla_lanigera_%28Wroclaw_zoo%29-2.JPG",
+    "facts": [
+      "Chinchillas have the softest fur of any land animal \u2014 20,000 hairs per square cm!",
+      "They take dust baths instead of water baths to keep their fur clean.",
+      "They can jump up to 6 feet in the air!"
+    ],
+    "videoUrl": "https://www.youtube.com/embed/NYIdmpp69MY",
+    "videoType": "youtube"
+  },
+  {
+    "id": "seahorse",
+    "name": "Seahorse",
+    "emoji": "\ud83d\udc34\ud83c\udf0a",
+    "color": "#ffcc80",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Hippocampus_hippocampus_%28on_Ascophyllum_nodosum%29.jpg/960px-Hippocampus_hippocampus_%28on_Ascophyllum_nodosum%29.jpg",
+    "facts": [
+      "Male seahorses are the ones who get pregnant and give birth!",
+      "They have no stomach \u2014 food passes through them so fast they must eat constantly.",
+      "Seahorse couples greet each other every morning with a special dance."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/UqYUTTqupOY",
+    "videoType": "youtube"
+  },
+  {
+    "id": "wombat",
+    "name": "Wombat",
+    "emoji": "\ud83d\udc3b\ud83d\udfe4",
+    "color": "#8d6e63",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Vombatus_ursinus_-Maria_Island_National_Park.jpg/960px-Vombatus_ursinus_-Maria_Island_National_Park.jpg",
+    "facts": [
+      "Wombats are the only animals in the world that poop cubes!",
+      "Their backward-facing pouch keeps dirt out while they dig burrows.",
+      "Their butt is made of mostly cartilage \u2014 they use it to block their burrow entrance!"
+    ],
+    "videoUrl": "https://www.youtube.com/embed/1_SHHHTX1BQ",
+    "videoType": "youtube"
+  },
+  {
+    "id": "blue-footed-booby",
+    "name": "Blue-Footed Booby",
+    "emoji": "\ud83d\udc26\ud83d\udc99",
+    "color": "#64b5f6",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Blue-footed-booby.jpg/960px-Blue-footed-booby.jpg",
+    "facts": [
+      "Males show off their bright blue feet in a high-stepping dance to attract mates!",
+      "The bluer the feet, the healthier the bird \u2014 and the more attractive to partners.",
+      "They got the name 'booby' from the Spanish word 'bobo' meaning silly."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/HqBm-latT3o",
+    "videoType": "youtube"
+  },
+  {
+    "id": "otter-shrew",
+    "name": "Otter Shrew",
+    "emoji": "\ud83e\udda6\ud83d\udc2d",
+    "color": "#795548",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Potamogale_velox_340101862.jpg/960px-Potamogale_velox_340101862.jpg",
+    "facts": [
+      "Despite the name, they're not related to otters OR shrews!",
+      "They're one of Africa's most mysterious mammals \u2014 rarely seen in the wild.",
+      "They use their powerful flat tail to swim like a little torpedo."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/AmhtG7JQbYo",
+    "videoType": "youtube"
+  },
+  {
+    "id": "narwhal",
+    "name": "Narwhal",
+    "emoji": "\ud83e\udd84\ud83d\udc0b",
+    "color": "#b0bec5",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/%D0%9D%D0%B0%D1%80%D0%B2%D0%B0%D0%BB_%D0%B2_%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%BE%D0%B9_%D0%90%D1%80%D0%BA%D1%82%D0%B8%D0%BA%D0%B5.jpg/960px-%D0%9D%D0%B0%D1%80%D0%B2%D0%B0%D0%BB_%D0%B2_%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%BE%D0%B9_%D0%90%D1%80%D0%BA%D1%82%D0%B8%D0%BA%D0%B5.jpg",
+    "facts": [
+      "A narwhal's 'horn' is actually a giant tooth that can grow up to 10 feet long!",
+      "The tusk has millions of nerve endings \u2014 they can sense temperature and water pressure with it.",
+      "They're called the 'unicorns of the sea' and live in Arctic waters."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/ykwqXuMPsoc",
+    "videoType": "youtube"
+  },
+  {
+    "id": "meerkat",
+    "name": "Meerkat",
+    "emoji": "\ud83d\udc3e\ud83d\udc40",
+    "color": "#d7ccc8",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Meerkat_%28Suricata_suricatta%29_Tswalu.jpg/960px-Meerkat_%28Suricata_suricatta%29_Tswalu.jpg",
+    "facts": [
+      "Meerkats post sentinels that stand guard while the group forages!",
+      "They have a special call for different types of predators \u2014 essentially a language.",
+      "Baby meerkats are taught to eat scorpions by first being given ones with the stinger removed."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/zPjGYLUHY5w",
+    "videoType": "youtube"
+  },
+  {
+    "id": "koala",
+    "name": "Koala",
+    "emoji": "\ud83d\udc28",
+    "color": "#90a4ae",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Koala_climbing_tree.jpg/960px-Koala_climbing_tree.jpg",
+    "facts": [
+      "Koalas sleep up to 22 hours a day because eucalyptus leaves give them so little energy!",
+      "Each koala has a unique nose print, just like human fingerprints.",
+      "Baby koalas are called joeys and are only the size of a jellybean when born."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/tEJlGHzXfTM",
+    "videoType": "youtube"
+  },
+  {
+    "id": "mantis-shrimp",
+    "name": "Mantis Shrimp",
+    "emoji": "\ud83e\udd90\ud83c\udf08",
+    "color": "#66bb6a",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/OdontodactylusScyllarus2.jpg/960px-OdontodactylusScyllarus2.jpg",
+    "facts": [
+      "They can see 16 types of color receptors \u2014 humans only have 3!",
+      "Their punch accelerates faster than a bullet and can break aquarium glass.",
+      "Despite their power, they're absolutely gorgeous \u2014 often rainbow-colored."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/F5FEj9U-CJM",
+    "videoType": "youtube"
+  },
+  {
+    "id": "clouded-leopard",
+    "name": "Clouded Leopard",
+    "emoji": "\ud83d\udc06\u2601\ufe0f",
+    "color": "#d7ccc8",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Neofelis_nebulosa%2C_Clouded_leopard.jpg/960px-Neofelis_nebulosa%2C_Clouded_leopard.jpg",
+    "facts": [
+      "They can hang upside down from branches using just their hind feet!",
+      "Their canine teeth are the longest relative to body size of any wild cat.",
+      "They're one of the best climbers in the cat family \u2014 they can climb down trees headfirst."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/3RNmMcMhPcI",
+    "videoType": "youtube"
+  },
+  {
+    "id": "bee-hummingbird",
+    "name": "Bee Hummingbird",
+    "emoji": "\ud83d\udc1d\ud83d\udc26",
+    "color": "#ce93d8",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Bee_hummingbird_%28Mellisuga_helenae%29_adult_male_in_flight-cropped.jpg/960px-Bee_hummingbird_%28Mellisuga_helenae%29_adult_male_in_flight-cropped.jpg",
+    "facts": [
+      "They're the smallest bird in the world \u2014 only 2 inches long and lighter than a penny!",
+      "Their heart beats up to 1,260 times per minute.",
+      "They can fly backwards, sideways, and even upside down."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/Biagyb7AcK8",
+    "videoType": "youtube"
+  },
+  {
+    "id": "emperor-tamarin",
+    "name": "Emperor Tamarin",
+    "emoji": "\ud83d\udc12\ud83d\udc68",
+    "color": "#bcaaa4",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Tamarin_portrait.JPG/960px-Tamarin_portrait.JPG",
+    "facts": [
+      "They're named for their magnificent mustache that resembles Emperor Wilhelm II!",
+      "The whole family group helps raise the babies \u2014 dads do most of the carrying.",
+      "They weigh less than a pound but have enormous personality."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/JVsTTbfNqCg",
+    "videoType": "youtube"
+  },
+  {
+    "id": "jellyfish",
+    "name": "Moon Jellyfish",
+    "emoji": "\ud83e\udebc",
+    "color": "#b39ddb",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Aurelia_aurita_%28Cnidaria%29_Luc_Viatour.jpg/960px-Aurelia_aurita_%28Cnidaria%29_Luc_Viatour.jpg",
+    "facts": [
+      "Moon jellyfish have no brain, no heart, and no blood \u2014 yet they've survived for 500 million years!",
+      "They're about 95% water.",
+      "They glow with a beautiful blue bioluminescence under UV light."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/RkBbMn2843g",
+    "videoType": "youtube"
+  },
+  {
+    "id": "pygmy-marmoset",
+    "name": "Pygmy Marmoset",
+    "emoji": "\ud83d\udc12\u2728",
+    "color": "#ffab91",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Dv%C3%A6rgsilkeabe_Callithrix_pygmaea.jpg/960px-Dv%C3%A6rgsilkeabe_Callithrix_pygmaea.jpg",
+    "facts": [
+      "They're the smallest monkeys in the world \u2014 small enough to fit in your palm!",
+      "They can rotate their heads 180 degrees, almost like an owl.",
+      "They communicate with ultrasonic calls that humans can't even hear."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/qA_cUz6r-Vk",
+    "videoType": "youtube"
+  },
+  {
+    "id": "snow-leopard",
+    "name": "Snow Leopard",
+    "emoji": "\ud83d\udc06\u2744\ufe0f",
+    "color": "#cfd8dc",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Irbis4.JPG/960px-Irbis4.JPG",
+    "facts": [
+      "Snow leopards can't roar \u2014 they make a purring sound instead!",
+      "Their tails are almost as long as their body and they wrap them around their face to stay warm.",
+      "They can leap up to 50 feet in a single bound."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/eLLzNBxTpUo",
+    "videoType": "youtube"
+  },
+  {
+    "id": "clownfish",
+    "name": "Clownfish",
+    "emoji": "\ud83d\udc20",
+    "color": "#ff8a65",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Clown_fish_in_the_Andaman_Coral_Reef.jpg/960px-Clown_fish_in_the_Andaman_Coral_Reef.jpg",
+    "facts": [
+      "Clownfish are immune to the stings of their host anemone thanks to a special mucus!",
+      "All clownfish are born male \u2014 the dominant one becomes female.",
+      "They do a little wiggling dance to keep their anemone clean and healthy."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/vkV-0wIBx3Q",
+    "videoType": "youtube"
+  },
+  {
+    "id": "red-eyed-tree-frog",
+    "name": "Red-Eyed Tree Frog",
+    "emoji": "\ud83d\udc38\ud83d\udc41\ufe0f",
+    "color": "#66bb6a",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Red-eyed_Tree_Frog_%28Agalychnis_callidryas%29_1.png/960px-Red-eyed_Tree_Frog_%28Agalychnis_callidryas%29_1.png",
+    "facts": [
+      "Their bright red eyes are a defense mechanism called 'startle coloration' \u2014 they flash them to scare predators!",
+      "They can change their skin color slightly depending on their mood.",
+      "Their tadpoles can hatch early if they sense a predator shaking their egg leaf."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/YZEbBZ2IrXE",
+    "videoType": "youtube"
+  },
+  {
+    "id": "platypus",
+    "name": "Platypus",
+    "emoji": "\ud83e\uddab\ud83e\udd86",
+    "color": "#8d6e63",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Duck-billed_platypus_%28Ornithorhynchus_anatinus%29_Scottsdale.jpg/960px-Duck-billed_platypus_%28Ornithorhynchus_anatinus%29_Scottsdale.jpg",
+    "facts": [
+      "The platypus is one of only five species of mammals that lay eggs!",
+      "Males have venomous spurs on their hind legs.",
+      "They detect prey underwater by sensing the electric fields generated by muscle contractions."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/a6QHzIJO5a8",
+    "videoType": "youtube"
+  },
+  {
+    "id": "manatee",
+    "name": "Manatee",
+    "emoji": "\ud83d\udc0b\ud83d\udc9a",
+    "color": "#90a4ae",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Underwater_photography_on_endangered_mammal_manatee.jpg/960px-Underwater_photography_on_endangered_mammal_manatee.jpg",
+    "facts": [
+      "Manatees are also called 'sea cows' and they're gentle vegetarians!",
+      "They replace their teeth continuously throughout their lives \u2014 like a conveyor belt.",
+      "Early sailors mistook them for mermaids!"
+    ],
+    "videoUrl": "https://www.youtube.com/embed/FpGOhlJjKkQ",
+    "videoType": "youtube"
+  },
+  {
+    "id": "kakapo",
+    "name": "Kakapo",
+    "emoji": "\ud83e\udd9c\ud83d\udc9a",
+    "color": "#aed581",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Kakapo_Sirocco_1.jpg",
+    "facts": [
+      "The kakapo is the world's only flightless parrot \u2014 and the heaviest one too!",
+      "There are fewer than 250 left, and every single one has a name.",
+      "They smell like honey and flowers, which unfortunately makes them easy for predators to find."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/9T1vfsHYiKY",
+    "videoType": "youtube"
+  },
+  {
+    "id": "flying-squirrel",
+    "name": "Flying Squirrel",
+    "emoji": "\ud83d\udc3f\ufe0f\ud83e\ude82",
+    "color": "#bcaaa4",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Japanese_dwarf_flying_squirrel.jpg/960px-Japanese_dwarf_flying_squirrel.jpg",
+    "facts": [
+      "They don't actually fly \u2014 they glide using a furry membrane called a patagium!",
+      "Japanese dwarf flying squirrels are considered one of the cutest animals on Earth.",
+      "They can glide distances of up to 300 feet between trees."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/1voKOdm6vBY",
+    "videoType": "youtube"
+  },
+  {
+    "id": "blobfish",
+    "name": "Blobfish",
+    "emoji": "\ud83d\udc1f\ud83d\ude10",
+    "color": "#f8bbd0",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Psychrolutes_marcidus.jpg/960px-Psychrolutes_marcidus.jpg",
+    "facts": [
+      "In their natural deep-sea habitat, they actually look like normal fish \u2014 the 'blobby' look only happens at the surface!",
+      "They live at depths where the pressure is 120 times greater than at the surface.",
+      "They don't have muscles \u2014 they just float above the ocean floor waiting for food to drift by."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/oKpF9M1omT0",
+    "videoType": "youtube"
+  },
+  {
+    "id": "alpaca",
+    "name": "Alpaca",
+    "emoji": "\ud83e\udd99",
+    "color": "#d7ccc8",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Alpaca_in_Higashiyama_Zoo_-_1.jpg/960px-Alpaca_in_Higashiyama_Zoo_-_1.jpg",
+    "facts": [
+      "Alpacas hum to communicate \u2014 each hum means something different!",
+      "They have incredibly soft fleece that comes in 22 natural colors.",
+      "When annoyed, they spit \u2014 but they usually only spit at other alpacas, not humans."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/gXFnm96XgrI",
+    "videoType": "youtube"
+  },
+  {
+    "id": "leafy-seadragon",
+    "name": "Leafy Seadragon",
+    "emoji": "\ud83d\udc09\ud83c\udf43",
+    "color": "#c5e1a5",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Leafy_Seadragon_on_Kangaroo_Island.jpg/960px-Leafy_Seadragon_on_Kangaroo_Island.jpg",
+    "facts": [
+      "Their leaf-like appendages are purely for camouflage \u2014 they don't use them to swim!",
+      "They're the marine emblem of the state of South Australia.",
+      "Like seahorses, the males carry and protect the eggs."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/HqP2hmMnf-c",
+    "videoType": "youtube"
+  },
+  {
+    "id": "aye-aye",
+    "name": "Aye-Aye",
+    "emoji": "\ud83d\udc35\ud83d\udc46",
+    "color": "#5d4037",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Wild_aye_aye.jpg/960px-Wild_aye_aye.jpg",
+    "facts": [
+      "They have a super-long, skinny middle finger they use to tap on trees and fish out grubs!",
+      "They're the world's largest nocturnal primate.",
+      "In Madagascar folklore, they're considered omens \u2014 making them one of the most misunderstood animals."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/jHs5POy8-8Y",
+    "videoType": "youtube"
+  },
+  {
+    "id": "peacock-spider",
+    "name": "Peacock Spider",
+    "emoji": "\ud83d\udd77\ufe0f\ud83e\udd9a",
+    "color": "#7e57c2",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/53/MalePeacockSpider.jpg",
+    "facts": [
+      "Males do an elaborate dance with their colorful belly flaps raised to impress females!",
+      "They're only about 5mm long \u2014 smaller than a pencil eraser.",
+      "If the female isn't impressed by his dance, she might eat him!"
+    ],
+    "videoUrl": "https://www.youtube.com/embed/d_yYC5r8xMI",
+    "videoType": "youtube"
+  },
+  {
+    "id": "numbat",
+    "name": "Numbat",
+    "emoji": "\ud83d\udc3f\ufe0f\ud83d\udccf",
+    "color": "#ff8a65",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Numbat%2C_Dryandra_Woodland%2C_Western_Australia.jpg/960px-Numbat%2C_Dryandra_Woodland%2C_Western_Australia.jpg",
+    "facts": [
+      "Numbats eat up to 20,000 termites a day using their long, sticky tongue!",
+      "They're one of the few marsupials active during the daytime.",
+      "They have beautiful orange-brown fur with white stripes \u2014 nature's racing stripes!"
+    ],
+    "videoUrl": "https://www.youtube.com/embed/xexJvid7kg4",
+    "videoType": "youtube"
+  },
+  {
+    "id": "golden-poison-frog",
+    "name": "Golden Poison Frog",
+    "emoji": "\ud83d\udc38\ud83d\udc9b",
+    "color": "#ffd54f",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Schrecklicherpfeilgiftfrosch-01.jpg/895px-Schrecklicherpfeilgiftfrosch-01.jpg",
+    "facts": [
+      "One golden poison frog has enough toxin to kill 10 grown adults!",
+      "Despite being deadly, they're actually amazing parents who carry their tadpoles on their back.",
+      "Their bright golden color is nature's way of saying 'don't touch me!'"
+    ],
+    "videoUrl": "https://www.youtube.com/embed/lr_8DC6bLcc",
+    "videoType": "youtube"
+  },
+  {
+    "id": "okapi",
+    "name": "Okapi",
+    "emoji": "\ud83e\udd92\ud83e\udd93",
+    "color": "#795548",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Saint-Aignan_%28Loir-et-Cher%29._Okapi.jpg/960px-Saint-Aignan_%28Loir-et-Cher%29._Okapi.jpg",
+    "facts": [
+      "Okapis look like a zebra-giraffe mashup, but they're actually the giraffe's only living relative!",
+      "Their tongues are so long (14-18 inches) they can lick their own ears.",
+      "They weren't known to western science until 1901 \u2014 one of the last large mammals discovered."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/PtNYyJEAiKI",
+    "videoType": "youtube"
+  },
+  {
+    "id": "harp-seal",
+    "name": "Harp Seal Pup",
+    "emoji": "\ud83e\uddad\ud83e\udd0d",
+    "color": "#e0e0e0",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Harp_Seal_%28Pagophilus_groenlandicus%29%2C_Greenland_Sea_IMG_5075.jpg/960px-Harp_Seal_%28Pagophilus_groenlandicus%29%2C_Greenland_Sea_IMG_5075.jpg",
+    "facts": [
+      "Harp seal pups are born with fluffy white fur that's so iconic it became a symbol of conservation!",
+      "They can swim and dive within just a few weeks of being born.",
+      "Their white coat helps them blend into the Arctic ice to hide from predators."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/Hbs09VRiNQA",
+    "videoType": "youtube"
+  },
+  {
+    "id": "kiwi",
+    "name": "Kiwi Bird",
+    "emoji": "\ud83e\udd5d\ud83d\udc26",
+    "color": "#795548",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/TeTuatahianui.jpg/960px-TeTuatahianui.jpg",
+    "facts": [
+      "Kiwis are the only birds with nostrils at the tip of their beak!",
+      "They have whiskers like a cat that help them navigate at night.",
+      "Their eggs are huge \u2014 up to 20% of the mother's body weight!"
+    ],
+    "videoUrl": "https://www.youtube.com/embed/sdgMbkCbjMQ",
+    "videoType": "youtube"
+  },
+  {
+    "id": "fossa",
+    "name": "Fossa",
+    "emoji": "\ud83d\udc31\ud83d\udc12",
+    "color": "#a1887f",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Cryptoprocta_Ferox.JPG/960px-Cryptoprocta_Ferox.JPG",
+    "facts": [
+      "The fossa is Madagascar's top predator \u2014 it looks like a cat but is related to the mongoose!",
+      "They're one of the few predators agile enough to hunt lemurs through the trees.",
+      "Their tail is as long as their body, giving them incredible balance."
+    ],
+    "videoUrl": "https://www.youtube.com/embed/PmWSBiAkOqk",
+    "videoType": "youtube"
+  }
+]
