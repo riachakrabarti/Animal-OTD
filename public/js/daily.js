@@ -105,6 +105,11 @@ const Daily = {
       const data = await API.reveal(animalId);
       const animal = data.animal;
 
+      // Save progress to localStorage
+      const today = new Date().toISOString().slice(0, 10);
+      API.addDiscovered(animal.id);
+      API.addRevealedToday(animal.id, today);
+
       // Populate card back
       const cardBack = card.querySelector('.card-back');
       cardBack.innerHTML = this.cardBackHTML(animal);

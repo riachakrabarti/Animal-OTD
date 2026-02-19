@@ -24,10 +24,6 @@
       "dest": "/server.js"
     },
     {
-      "src": "/(favicon\\.ico|robots\\.txt)",
-      "dest": "/public/$1"
-    },
-    {
       "src": "/(.*)",
       "dest": "/server.js"
     }
