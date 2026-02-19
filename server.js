@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const https = require('https');
+const { Redis } = require('@upstash/redis');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -12,8 +13,29 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // --- Data ---
 const animals = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/animals.json'), 'utf8'));
-const VALID_USERS = { elliot: 'elliot', ria: 'ria', elliotandria: 'elliotandria' };
-const tokenMap = {}; // token -> username (in-memory)
+const VALID_USERS = ['elliot', 'ria', 'elliotandria'];
+const tokenMap = {}; // token -> username (in-memory, survives within a single instance)
+
+// --- Redis (Upstash) ---
+const redis = new Redis({
+  url: process.env.KV_REST_API_URL,
+  token: process.env.KV_REST_API_TOKEN,
+});
+
+// Helper: get user data from Redis
+async function getUser(username) {
+  const data = await redis.get(`user:${username}`);
+  if (data) return data;
+  // Initialize new user
+  const initial = { discoveredAnimals: [], days: {} };
+  await redis.set(`user:${username}`, JSON.stringify(initial));
+  return initial;
+}
+
+// Helper: save user data to Redis
+async function saveUser(username, userData) {
+  await redis.set(`user:${username}`, JSON.stringify(userData));
+}
 
 // --- Image Proxy (avoids Wikimedia hotlink/rate-limit issues) ---
 const imageCache = new Map();
@@ -86,17 +108,20 @@ function shuffle(arr, rng) {
   return a;
 }
 
-// --- Day Algorithm (stateless — client sends discovered list) ---
+// --- Day Algorithm ---
 function getTodayString() {
   return new Date().toISOString().slice(0, 10);
 }
 
 function getAnimalsForDay(username, dateStr, discoveredIds) {
-  // Build pool of undiscovered animals
   const pool = animals.filter(a => !discoveredIds.includes(a.id));
 
+  if (pool.length === 0) {
+    return { animals: [], revealed: [], completedAt: null, exhausted: true };
+  }
+
   if (pool.length < 3) {
-    return { animals: pool.map(a => a.id), revealed: [], completedAt: null, exhausted: pool.length === 0 };
+    return { animals: pool.map(a => a.id), revealed: [], completedAt: null, exhausted: false };
   }
 
   const seed = hashString(username + ':' + dateStr);
@@ -129,91 +154,118 @@ app.post('/api/login', (req, res) => {
   const { passcode } = req.body;
   if (!passcode) return res.status(400).json({ error: 'Passcode required' });
 
-  for (const [username, pass] of Object.entries(VALID_USERS)) {
-    if (pass === passcode) {
-      const token = crypto.randomBytes(16).toString('hex');
-      tokenMap[token] = username;
-      return res.json({ username, token });
-    }
+  if (VALID_USERS.includes(passcode)) {
+    const username = passcode;
+    const token = crypto.randomBytes(16).toString('hex');
+    tokenMap[token] = username;
+    return res.json({ username, token });
   }
   return res.status(401).json({ error: 'Invalid passcode' });
 });
 
-// Get today's animals (client sends its discovered list)
-app.post('/api/today', auth, (req, res) => {
-  const dateStr = getTodayString();
-  const discoveredIds = req.body.discoveredIds || [];
-  const revealedToday = req.body.revealedToday || [];
+// Get today's animals
+app.get('/api/today', auth, async (req, res) => {
+  try {
+    const dateStr = getTodayString();
+    const user = await getUser(req.username);
 
-  // Validate discoveredIds — only allow known animal IDs
-  const validDiscovered = discoveredIds.filter(id => animals.find(a => a.id === id));
-
-  const dayData = getAnimalsForDay(req.username, dateStr, validDiscovered);
-
-  if (dayData.exhausted) {
-    return res.json({ date: dateStr, animals: [], completed: true, exhausted: true });
-  }
-
-  const animalCards = dayData.animals.map(id => {
-    const isRevealed = revealedToday.includes(id);
-    const animal = animals.find(a => a.id === id);
-    if (isRevealed && animal) {
-      return { id, revealed: true, name: animal.name, emoji: animal.emoji, color: animal.color, image: animal.image, facts: animal.facts, videoUrl: animal.videoUrl, videoType: animal.videoType };
+    // If day already assigned, return it
+    if (user.days[dateStr]) {
+      const dayData = user.days[dateStr];
+      const animalCards = dayData.animals.map(id => {
+        const isRevealed = dayData.revealed.includes(id);
+        const animal = animals.find(a => a.id === id);
+        if (isRevealed && animal) {
+          return { id, revealed: true, name: animal.name, emoji: animal.emoji, color: animal.color, image: animal.image, facts: animal.facts, videoUrl: animal.videoUrl, videoType: animal.videoType };
+        }
+        return { id, revealed: false };
+      });
+      const completed = dayData.completedAt !== null;
+      return res.json({ date: dateStr, animals: animalCards, completed, exhausted: false });
     }
-    return { id, revealed: false };
-  });
 
-  const completed = revealedToday.length >= dayData.animals.length &&
-    dayData.animals.every(id => revealedToday.includes(id));
+    // Compute new day
+    const dayData = getAnimalsForDay(req.username, dateStr, user.discoveredAnimals);
 
-  res.json({ date: dateStr, animals: animalCards, completed, exhausted: false });
-});
+    if (dayData.exhausted) {
+      return res.json({ date: dateStr, animals: [], completed: true, exhausted: true });
+    }
 
-// Reveal an animal (client sends its state)
-app.post('/api/reveal', auth, (req, res) => {
-  const { animalId, discoveredIds, revealedToday } = req.body;
-  if (!animalId) return res.status(400).json({ error: 'animalId required' });
+    // Save day assignment
+    user.days[dateStr] = dayData;
+    await saveUser(req.username, user);
 
-  const dateStr = getTodayString();
-  const validDiscovered = (discoveredIds || []).filter(id => animals.find(a => a.id === id));
-  const dayData = getAnimalsForDay(req.username, dateStr, validDiscovered);
-
-  if (!dayData.animals.includes(animalId)) {
-    return res.status(400).json({ error: 'Animal not assigned today' });
+    const animalCards = dayData.animals.map(id => ({ id, revealed: false }));
+    res.json({ date: dateStr, animals: animalCards, completed: false, exhausted: false });
+  } catch (e) {
+    console.error('Error in /api/today:', e);
+    res.status(500).json({ error: 'Server error' });
   }
-
-  const animal = animals.find(a => a.id === animalId);
-  if (!animal) return res.status(404).json({ error: 'Animal not found' });
-
-  // Check if all 3 are now revealed
-  const newRevealed = [...new Set([...(revealedToday || []), animalId])];
-  const completed = newRevealed.length >= dayData.animals.length &&
-    dayData.animals.every(id => newRevealed.includes(id));
-
-  res.json({ animal, completed });
 });
 
-// Get zoo animals (client sends its discovered list, server returns full animal data)
-app.post('/api/zoo', auth, (req, res) => {
-  const discoveredIds = req.body.discoveredIds || [];
-  const validDiscovered = discoveredIds.filter(id => animals.find(a => a.id === id));
+// Reveal an animal
+app.post('/api/reveal', auth, async (req, res) => {
+  try {
+    const { animalId } = req.body;
+    if (!animalId) return res.status(400).json({ error: 'animalId required' });
 
-  const zooAnimals = validDiscovered.map(id => {
-    const animal = animals.find(a => a.id === id);
-    if (!animal) return null;
-    return {
-      id: animal.id,
-      name: animal.name,
-      emoji: animal.emoji,
-      color: animal.color,
-      image: animal.image,
-      facts: animal.facts,
-      videoUrl: animal.videoUrl,
-      videoType: animal.videoType
-    };
-  }).filter(Boolean);
+    const dateStr = getTodayString();
+    const user = await getUser(req.username);
+    const dayData = user.days[dateStr];
 
-  res.json({ animals: zooAnimals, total: animals.length });
+    if (!dayData) return res.status(400).json({ error: 'No animals assigned today' });
+    if (!dayData.animals.includes(animalId)) return res.status(400).json({ error: 'Animal not assigned today' });
+    if (dayData.revealed.includes(animalId)) {
+      const animal = animals.find(a => a.id === animalId);
+      return res.json({ animal, alreadyRevealed: true });
+    }
+    if (dayData.completedAt) return res.status(400).json({ error: 'Day already completed' });
+
+    // Reveal the animal
+    dayData.revealed.push(animalId);
+    if (!user.discoveredAnimals.includes(animalId)) {
+      user.discoveredAnimals.push(animalId);
+    }
+
+    // Check if day is complete
+    if (dayData.revealed.length >= dayData.animals.length) {
+      dayData.completedAt = new Date().toISOString();
+    }
+
+    await saveUser(req.username, user);
+
+    const animal = animals.find(a => a.id === animalId);
+    res.json({ animal, completed: dayData.completedAt !== null });
+  } catch (e) {
+    console.error('Error in /api/reveal:', e);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+// Get zoo animals
+app.get('/api/zoo', auth, async (req, res) => {
+  try {
+    const user = await getUser(req.username);
+    const zooAnimals = user.discoveredAnimals.map(id => {
+      const animal = animals.find(a => a.id === id);
+      if (!animal) return null;
+      return {
+        id: animal.id,
+        name: animal.name,
+        emoji: animal.emoji,
+        color: animal.color,
+        image: animal.image,
+        facts: animal.facts,
+        videoUrl: animal.videoUrl,
+        videoType: animal.videoType
+      };
+    }).filter(Boolean);
+
+    res.json({ animals: zooAnimals, total: animals.length });
+  } catch (e) {
+    console.error('Error in /api/zoo:', e);
+    res.status(500).json({ error: 'Server error' });
+  }
 });
 
 // Catch-all: serve index.html for SPA
