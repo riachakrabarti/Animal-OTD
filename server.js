@@ -37,6 +37,42 @@ async function saveUser(username, userData) {
   await redis.set(`user:${username}`, JSON.stringify(userData));
 }
 
+// Helper: get the global list of all animals claimed across all accounts
+async function getGlobalClaimed() {
+  const data = await redis.get('global:claimed');
+  if (data) {
+    // Handle both string and array formats from Redis
+    if (typeof data === 'string') {
+      try { return JSON.parse(data); } catch { return []; }
+    }
+    if (Array.isArray(data)) return data;
+  }
+  // First time: build global list from all existing user data (preserves existing zoos)
+  const allClaimed = new Set();
+  for (const username of VALID_USERS) {
+    const userData = await redis.get(`user:${username}`);
+    if (userData) {
+      const user = typeof userData === 'string' ? JSON.parse(userData) : userData;
+      if (user.discoveredAnimals) {
+        user.discoveredAnimals.forEach(id => allClaimed.add(id));
+      }
+    }
+  }
+  const claimedArray = [...allClaimed];
+  await redis.set('global:claimed', JSON.stringify(claimedArray));
+  return claimedArray;
+}
+
+// Helper: add an animal to the global claimed list
+async function addToGlobalClaimed(animalId) {
+  const claimed = await getGlobalClaimed();
+  if (!claimed.includes(animalId)) {
+    claimed.push(animalId);
+    await redis.set('global:claimed', JSON.stringify(claimed));
+  }
+  return claimed;
+}
+
 // --- Image Proxy (avoids Wikimedia hotlink/rate-limit issues) ---
 const imageCache = new Map();
 
@@ -113,8 +149,10 @@ function getTodayString() {
   return new Date().toISOString().slice(0, 10);
 }
 
-function getAnimalsForDay(username, dateStr, discoveredIds) {
-  const pool = animals.filter(a => !discoveredIds.includes(a.id));
+function getAnimalsForDay(username, dateStr, discoveredIds, globalClaimedIds) {
+  // Exclude animals claimed by ANY account (cross-account duplicate prevention)
+  const excludedIds = new Set([...discoveredIds, ...globalClaimedIds]);
+  const pool = animals.filter(a => !excludedIds.has(a.id));
 
   if (pool.length === 0) {
     return { animals: [], revealed: [], completedAt: null, exhausted: true };
@@ -184,8 +222,9 @@ app.get('/api/today', auth, async (req, res) => {
       return res.json({ date: dateStr, animals: animalCards, completed, exhausted: false });
     }
 
-    // Compute new day
-    const dayData = getAnimalsForDay(req.username, dateStr, user.discoveredAnimals);
+    // Compute new day (exclude animals claimed by any account)
+    const globalClaimed = await getGlobalClaimed();
+    const dayData = getAnimalsForDay(req.username, dateStr, user.discoveredAnimals, globalClaimed);
 
     if (dayData.exhausted) {
       return res.json({ date: dateStr, animals: [], completed: true, exhausted: true });
@@ -232,7 +271,9 @@ app.post('/api/reveal', auth, async (req, res) => {
       dayData.completedAt = new Date().toISOString();
     }
 
+    // Save user data and mark animal as globally claimed (prevents other accounts from getting it)
     await saveUser(req.username, user);
+    await addToGlobalClaimed(animalId);
 
     const animal = animals.find(a => a.id === animalId);
     res.json({ animal, completed: dayData.completedAt !== null });
