@@ -151,7 +151,13 @@ const Daily = {
 
     const videoContainer = document.getElementById('modal-video');
     if (animal.videoUrl) {
-      videoContainer.innerHTML = `<iframe src="${animal.videoUrl}" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>`;
+      const match = animal.videoUrl.match(/youtube\.com\/embed\/([^?&]+)/);
+      const searchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(animal.name + ' animal documentary')}`;
+      const watchUrl = match ? `https://www.youtube.com/watch?v=${match[1]}` : searchUrl;
+      videoContainer.innerHTML = `
+        <iframe src="${animal.videoUrl}" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        <p class="video-fallback-link"><a href="${watchUrl}" target="_blank" rel="noopener noreferrer">Having trouble playing this video? Open on YouTube</a></p>
+      `;
     } else {
       videoContainer.innerHTML = '';
     }
