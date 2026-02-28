@@ -233,6 +233,18 @@ h1, h2, h3 {
   border-radius: var(--radius-sm);
 }
 
+.video-fallback-link {
+  margin-top: 0.6rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.video-fallback-link a {
+  color: var(--primary);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
 /* Utility */
 .hidden {
   display: none !important;

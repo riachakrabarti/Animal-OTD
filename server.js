@@ -76,6 +76,30 @@ async function addToGlobalClaimed(animalId) {
 // --- Image Proxy (avoids Wikimedia hotlink/rate-limit issues) ---
 const imageCache = new Map();
 
+
+
+function buildWikimediaFilePathUrl(url) {
+  const match = url.match(/\/commons\/(?:thumb\/[^/]+\/[^/]+\/)?([^/?#]+)/);
+  if (!match) return url;
+
+  let filename = decodeURIComponent(match[1]);
+  filename = filename.replace(/^\d+px-/, '');
+  return `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(filename)}`;
+}
+
+function getFallbackImage(animal) {
+  const safeName = animal.name.replace(/[<>&"']/g, '');
+  const safeEmoji = animal.emoji.replace(/[<>&"']/g, '');
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+      <rect width="100%" height="100%" fill="${animal.color || '#90a4ae'}"/>
+      <text x="50%" y="46%" text-anchor="middle" font-size="120" dominant-baseline="middle">${safeEmoji}</text>
+      <text x="50%" y="64%" text-anchor="middle" font-size="52" fill="#ffffff" font-family="Arial, sans-serif">${safeName}</text>
+    </svg>
+  `;
+  return Buffer.from(svg);
+}
+
 app.get('/api/image/:animalId', (req, res) => {
   const animal = animals.find(a => a.id === req.params.animalId);
   if (!animal) return res.status(404).send('Not found');
@@ -96,7 +120,11 @@ app.get('/api/image/:animalId', (req, res) => {
         return fetchUrl(proxyRes.headers.location, redirects + 1);
       }
       if (proxyRes.statusCode !== 200) {
-        return res.status(proxyRes.statusCode).send('Image fetch failed');
+        const fallbackData = getFallbackImage(animal);
+        imageCache.set(animal.id, { data: fallbackData, contentType: 'image/svg+xml' });
+        res.set('Content-Type', 'image/svg+xml');
+        res.set('Cache-Control', 'public, max-age=86400');
+        return res.send(fallbackData);
       }
       const chunks = [];
       proxyRes.on('data', chunk => chunks.push(chunk));
@@ -108,10 +136,16 @@ app.get('/api/image/:animalId', (req, res) => {
         res.set('Cache-Control', 'public, max-age=86400');
         res.send(data);
       });
-    }).on('error', () => res.status(502).send('Image fetch failed'));
+    }).on('error', () => {
+      const fallbackData = getFallbackImage(animal);
+      imageCache.set(animal.id, { data: fallbackData, contentType: 'image/svg+xml' });
+      res.set('Content-Type', 'image/svg+xml');
+      res.set('Cache-Control', 'public, max-age=86400');
+      res.send(fallbackData);
+    });
   };
 
-  fetchUrl(animal.image);
+  fetchUrl(buildWikimediaFilePathUrl(animal.image));
 });
 
 // --- Seeded PRNG ---
